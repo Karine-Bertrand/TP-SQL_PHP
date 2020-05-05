@@ -35,4 +35,4 @@ $logement = $response->fetch(PDO::FETCH_ASSOC);
 
 </main>
 
-<?php include('partials/script.php') ?>
+<?php include('partials/scripts.php') ?>
