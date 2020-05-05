@@ -36,9 +36,9 @@
                     <label for="prix">Prix (en €)</label>
                     <input name="prix" type="number" class="form-control" min=1 max=1000000000 required>
 
-                    <label for="typeaction">Type : </label></br>
-                    <input name="type_action" type="radio" value="location" checked> location
-                    <input name="type_action" type="radio" value="vente"> vente</br>
+                    <label for="type">Type : </label></br>
+                    <input name="type" type="radio" value="location" checked> location
+                    <input name="type" type="radio" value="vente"> vente</br>
 
                     <label for="description">Description</label>
                     <textarea name="description" type="text" class="form-control" rows=6 cols=30></textarea>

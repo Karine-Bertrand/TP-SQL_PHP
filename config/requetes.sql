@@ -9,6 +9,6 @@ CREATE TABLE `immobilier`.`logement` (
   `surface` INT NOT NULL,
   `prix` INT NOT NULL,
   `photo` VARCHAR(200) NULL,
-  `type_action` VARCHAR(20) NOT NULL,
+  `type` VARCHAR(20) NOT NULL,
   `description` TEXT NULL,
 );

@@ -2,7 +2,6 @@
 
 $suite = true;
 $msg = "";
-var_dump($_POST);
 
 // vérification des valeurs obligatoires : on renseigne le message à afficher pour chaque valeur non renseignée
 if (empty($_POST['titre'])) {
@@ -29,7 +28,7 @@ if (empty($_POST['prix'])) {
     $msg = $msg . "Le prix n'est pas renseigné !" . "</br>";
     $suite = false;
 }
-if (empty($_POST['type_action'])) {
+if (empty($_POST['type'])) {
     $msg = $msg . "Le type (location ou vente) n'est pas renseigné !" . "</br>";
     $suite = false;
 }
@@ -74,13 +73,13 @@ if ($suite) { /* les valeurs saisies correspondent aux critères attendus */
     $pathinfoData = pathinfo($photo['name']);
     $nomDuFichier = $pathinfoData['filename'];
     $extensionDuFichier = $pathinfoData['extension'];
-    $nouveauNomDuFichier = $nomDuFichier . '-' . uniqid() . '.' . $extensionDuFichier;
+    $nouveauNomDuFichier = 'logement_' . uniqid() . '.' . $extensionDuFichier;
     move_uploaded_file($photo['tmp_name'],  __DIR__  . '/assets/img/' . $nouveauNomDuFichier);
     }
     // si tout est OK, ajout dans la table
     require 'config/db.php';
-    $request =  "INSERT INTO logement (titre, adresse, cp, ville, surface, prix, type_action, description, photo)
-                VALUES (:titre, :adresse, :cp, :ville, :surface, :prix, :type_action, :description, :photo)";
+    $request =  "INSERT INTO logement (titre, adresse, cp, ville, surface, prix, type, description, photo)
+                VALUES (:titre, :adresse, :cp, :ville, :surface, :prix, :type, :description, :photo)";
     $response = $bdd->prepare($request);
     $response->execute([
         'titre'   =>  $_POST['titre'],
@@ -89,7 +88,7 @@ if ($suite) { /* les valeurs saisies correspondent aux critères attendus */
         'ville' =>  $_POST['ville'],
         'surface' =>  $_POST['surface'],
         'prix' =>  $_POST['prix'],
-        'type_action' =>  $_POST['type_action'],
+        'type' =>  $_POST['type'],
         'description' =>  $_POST['description'],
         'photo' => $nouveauNomDuFichier
     ]);
@@ -106,7 +105,7 @@ if ($suite) { /* les valeurs saisies correspondent aux critères attendus */
     <div class="container">
         <h3>Echec de création</h3>
         <p><strong><?= $msg ?></strong></p>
-        <a href="crate.php" class="btn btn-primary">Retour</a>
+        <a href="create.php" class="btn btn-primary">Retour</a>
     </div>
 </section>
 
