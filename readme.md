@@ -26,7 +26,7 @@ Formulaire de création de logement : voir le fichier "create.php"
 Page d’affichage des données saisies : voir le fichier "liste.php"
 
 5. Développements complémentaires
-Les fichiers uploadés via le champ photo sont renommés sous la forme "logement_(timestamp).jpg : voir la fonction "uploadPhoto" utilisée lors de la création des données.
+Les fichiers uploadés via le champ photo sont renommés sous la forme "logement_(timestamp).jpg : non réussi...
 Affichage d'un logement spécifique en passant son id dans l'url : voir le fichier "show.php"
 
 6. Fichier de départ : accueil.php
